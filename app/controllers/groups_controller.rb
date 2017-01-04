@@ -7,6 +7,7 @@ before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destr
 
   def show
     @group = Group.find(params[:id])
+    @posts = @group.posts
   end
 
   def edit
@@ -43,7 +44,7 @@ before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destr
       end
 
       def destroy
-      
+
 
         @group.destroy
         flash[:alert] = "Group deleted"
